@@ -1,0 +1,21 @@
+Die Bearbeitungszeit bitte in ganzen Stunden angeben (aufrunden).
+In den restlichen Zeilen jeweils ein X in der zutreffenden Spalte setzen.
+
+Bearbeitungszeit:  2h
+Schwierigkeit:     [ ] zu leicht         [x] genau richtig     [ ] zu schwer
+Lehrreich:         [ ] wenig             [x] etwas             [ ] sehr
+Verständlichkeit:  [ ] großteils unklar  [ ] teilweise unklar  [x] verständlich
+
+Kommentar:
+- Zeitaufwand zu groß? Wo sind Sie nicht weiter gekommen?
+Zeitaufwand war gut und realistisch durch die Punktevergabe eingeschätzt
+
+- Was war zu schwer oder unverständlich?
+Sollte man z.B. bei Aufgabe 2 jeden Befehl aufschreiben den man bei den Teilaufgaben verwendet hat, oder nur auf die Fragen antworten?
+
+- Was könnten wir verbessern?
+Bessere und herausstechendere Strukturierung der Fragen (eventuell Nummerierung um die Beantwortung übersichtlicher zu gestalten)
+
+- Was hat Ihnen besonders gut gefallen?
+Gute Auffrischung von C-Kentnissen (vorallem Pointer) und gute Einführung in Shell-Commands.
+

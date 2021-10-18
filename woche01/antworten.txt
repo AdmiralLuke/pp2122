@@ -1,0 +1,37 @@
+1.
+
+
+ 1) gcc/11.2.0-etpgtlk         13) gmp/6.2.1-kjre2df            25) libedit/3.1-20210216-d7ynamb
+ 2) libpciaccess/0.16-p43roxj  14) gdb/11.1-mej7iwv             26) openssh/8.7p1-ys2gnka
+ 3) libiconv/1.16-7ilreda      15) openssl/1.1.1l-tmbgu3q       27) pcre2/10.36-en5dsmh
+ 4) xz/5.2.5-fdhaxpk           16) curl/7.79.0-veguzce          28) berkeley-db/18.1.40-6z3g6sy
+ 5) zlib/1.2.11-ktj74ji        17) libmd/1.0.3-mru4jku          29) readline/8.1-aw7gf5u
+ 6) libxml2/2.9.12-37tqr4o     18) libbsd/0.11.3-x36oifq        30) gdbm/1.19-v22diqx
+ 7) ncurses/6.2-cpc5f5k        19) expat/2.4.1-hgby4vw          31) perl/5.34.0-pmjub5e
+ 8) hwloc/2.5.0-cncl65q        20) bzip2/1.0.8-suc7vpk          32) git/2.31.1-aq275ev
+ 9) libnl/3.3.0-quea5cm        21) tar/1.34-ngbw2xj             33) boost/1.77.0-pctuzbn
+10) rdma-core/34.0-zhsxvit     22) gettext/0.21-m6khrrt         34) valgrind/3.17.0-vpanwhj
+11) libfabric/1.13.1-f6x7rvb   23) libunistring/0.9.10-k4c3say
+12) mpich/3.4.2-shobmy2        24) libidn2/2.3.0-evcikua
+
+Laden: 	module load foobar
+	module add foobar
+Entladen: module unload foobar
+	  module rm foobar
+
+Erweiterte Infos: module help [Modulname]
+	
+
+cd ist Teil der Shell, weswegen es keinen extra Prozess benötigt da er von der Shell standardisiert geladen wird
+
+2.	Archiv : 256K
+ 	Datei  : 256K
+	tar-Archiv : 260k
+	komprimiertes tar-archiv : 257K
+
+	Die Größe des Archives ist genauso groß wie die darin enthaltene Datei. Jedoch ist das tar-Archiv größer.
+
+	Aufruf: tar cfz archiv.tar.gz archiv
+	-c : neue Datei erzeugen
+	-f : die zu verpackende Datei (muss angegeben werden)
+	-z : tar mit gzip verpacken
