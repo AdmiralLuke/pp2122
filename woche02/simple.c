@@ -71,6 +71,7 @@ main(void)
 	/* Fügen sie hier die korrekten aufrufe von free() ein. */
 	free((p[1]-1)); /* Welcher Pointer war das doch gleich? FIXME */
 	free((p[0]-1)); 
+	free(p[2]);
 	free(p[3]);
 	return 0;
 }
