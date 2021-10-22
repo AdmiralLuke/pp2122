@@ -23,7 +23,7 @@ mistake1(void)
 int*
 mistake2(void)
 {
-	int* buf = malloc(sizeof(char) * 4);
+	int* buf = malloc(sizeof(int) * 4);
 
 	buf[1] = 2; //falscher Index
 
@@ -47,7 +47,7 @@ mistake3(void)
 int*
 mistake4(void)
 {
-	int* buf = malloc(sizeof(char) * 4);
+	int* buf = malloc(sizeof(int) * 5);
 
 	buf[4] = 4;
 	//free(buf); nicht free'n
