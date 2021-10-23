@@ -1,0 +1,7 @@
+Fehler: alloziirter Speicher nicht freigegeben
+    Zeilen: 13, 26, 50 (jeweils bei malloc())
+    Grund: kein free wird aufgerufen
+
+Fehler: invalid free()
+    Zeile: 70 (bei free((p[1]));)
+    Grund: free bekommt nicht die korrekte Adresse vom Start Element sonden die vom Zweiten Element (siehe p[1])
