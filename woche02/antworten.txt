@@ -1,0 +1,24 @@
+3)
+	1. Job Scheduler = Anwendung, welche nicht-interaktive Jobs bzw. Hintergrundprozesse koordiniert und überwacht
+	2. Er soll sich wiederholende Aufgaben nach einem auf Kalender- und Ereignisbedingungen basierenden Zeitplan auszuführen.
+	3. Windows Task Scheduler, Oracle Grid Engine, Slurm-Job-Scheduler
+	4. Slurm-Job-Scheduler (https://wasd.urz.uni-magdeburg.de/jschulen/urz_hpc/t100/)
+	5. man übergibt einen batch script der vom Scheduler ausgeführt wird (direkt oder landet in der Warteschlange)
+	6. sacct
+	7. scancel
+	8. ja
+	9. sstat [JobName]
+	10. sprio 
+	    wenn sie bereits im Scheduler sind, kann die Priorität nicht mehr verändert/beeinflusst werden
+	    Priorität beim starten festlegen:
+	    sbatch --priority=value (zum anfordern/setzen einer priorität)
+	11. 
+  	    timesliced gang scheduling: 2 oder mehrere Jobs bekommen die gleichen Ressourcen alloziiert
+	    preemptive job scheduling: Jobs von höherer Priorität können über andere Jobs entscheiden/vorraussagen
+	
+	    auf dem System: timesliced gang scheduling für Mehrbenutzerbetrieb
+	12. sinfo -a liefert -> Partitionen: ci, amd, matlab, gpu, parcio, ams, theo, ec, all
+	13. mit salloc , hostname liefert ants
+	14. timeout unendlich
+	
+	

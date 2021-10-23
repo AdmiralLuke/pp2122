@@ -1,0 +1,23 @@
+Zeile 12
+- buf = {-69408, 32767, -134225456, 32767, 0, 0}
+- buf[2] = -134225456
+
+Zeile 14
+- buf = {1,1,2,3,4,5}
+- buf[2] = 2
+- buf ist vom Typ int-array
+
+Zeile 20
+- buf ist ein pointer vom Typ int (int *)
+- buf[2] = -998029078
+
+- Zeile 34: "Programm received signal SIGSEGV,Segmentation fault"
+
+Frames auf dem Stack:
+	0x40069c (in mistake3())
+	0x400705 (in main())
+
+p = {0x4, 0x6022a4, 0x7ffffffef1a0, 0x0}
+p enthält adressen
+
+Ausgabe von mistake4: 0x6022c0

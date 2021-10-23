@@ -1,0 +1,8 @@
+das Programm bricht in Zeile 142 mit einem "Segmentation fault" ab, da das Programm versucht das Programm Argument an Stelle 333 zu finden, 
+welches nicht vorhanden ist und sich nicht im zugreifbaren Speicher befindet. Änderung zu Stelle 3
+
+in Zeile 257 bricht das Programm ab, da es beim initialisieren der Matrix Probleme gibt. Dies liegt daran, dass "Matrix" 2-dimensional initialisiert wurde anstatt 3 Dimensional
+
+in Zeile 341 wurden i, j und m2 vertauscht
+
+
