@@ -58,8 +58,6 @@ mistake4(void)
 int
 main(void)
 {
-
-	int* a = mistake1();
 	/* Modifizieren Sie die folgende Zeile nicht. */
 	int* p[4] = { &mistake1()[1], &mistake2()[1], mistake3(), mistake4() };
 
