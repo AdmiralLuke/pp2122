@@ -1,5 +1,5 @@
 3)
-	1. Job Scheduler = Anwendung, welche nicht-interaktive Jobs bzw. Hintergrundprozesse koordiniert und überwacht
+	1. Job Scheduler = Anwendung, welche (nicht-interaktive) Jobs bzw. Hintergrundprozesse koordiniert und überwacht
 	2. Er soll sich wiederholende Aufgaben nach einem auf Kalender- und Ereignisbedingungen basierenden Zeitplan auszuführen.
 	3. Windows Task Scheduler, Oracle Grid Engine, Slurm-Job-Scheduler
 	4. Slurm-Job-Scheduler (https://wasd.urz.uni-magdeburg.de/jschulen/urz_hpc/t100/)
