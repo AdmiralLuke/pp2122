@@ -13,8 +13,9 @@
 	    Priorität beim starten festlegen:
 	    sbatch --priority=value (zum anfordern/setzen einer priorität)
 	11. 
-  	    timesliced gang scheduling: 2 oder mehrere Jobs bekommen die gleichen Ressourcen alloziiert
-	    preemptive job scheduling: Jobs von höherer Priorität können über andere Jobs entscheiden/vorraussagen
+  	    - FiFo
+	    - Backfill
+	    - PriorityQueue
 	
 	    auf dem System: timesliced gang scheduling für Mehrbenutzerbetrieb
 	12. sinfo -a liefert -> Partitionen: ci, amd, matlab, gpu, parcio, ams, theo, ec, all
