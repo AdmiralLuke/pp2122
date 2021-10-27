@@ -18,7 +18,7 @@
 	    - PriorityQueue
 	
 	    auf dem System: timesliced gang scheduling für Mehrbenutzerbetrieb
-	12. sinfo -a liefert -> Partitionen: ci, amd, matlab, gpu, parcio, ams, theo, ec, all
+	12. sinfo -a liefert -> Partitionen: ci, amd, matlab, gpu, parcio, ams, theo, ec, all, vl-parcio
 	13. mit salloc , hostname liefert ants
 	14. timeout unendlich
 	
