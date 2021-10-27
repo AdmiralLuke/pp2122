@@ -20,6 +20,7 @@
 	    auf dem System: timesliced gang scheduling für Mehrbenutzerbetrieb
 	12. sinfo -a liefert -> Partitionen: ci, amd, matlab, gpu, parcio, ams, theo, ec, all, vl-parcio
 	13. mit salloc , hostname liefert ants
+		srun -p vl-parcio -w ant10 hostname
 	14. timeout unendlich
 	
 	
