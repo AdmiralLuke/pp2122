@@ -1,0 +1,5 @@
+- die ersten 4 Knoten jedes Aufrufes, sind immer ant13 und danach gemischte Knoten von ant14 - ant16 (immer 4 von jedem Knoten)
+ant13 sind die langsamsten knoten und ant15 die schnellsten
+Eventuell könnte das an unterschiedlicher Hardware der Knoten liegen.
+
+- ja, mit echo "$message" > timescript.out

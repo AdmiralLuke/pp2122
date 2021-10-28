@@ -1,0 +1,2 @@
+Der Befehl reserviert 2 Kerne mit jeweis 2 Threads pro Kern.
+Da die Kerne reserviert sind und eigentlich nur 3 benötigt werden, bekommt man den 4. da dieser sonst unbenutzt im 2. reservierten Kern bleibt.
