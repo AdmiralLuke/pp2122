@@ -1,0 +1,49 @@
+Beispiel: ./partdiff 1 2 64 1 2 10240
+
+Kleine Optimierungen: Zeile 300: statt pi*pi gleich pi^2 festlegen
+
+Mit clang statt gcc bekommt man in einigen fällen einen Speedup von 10%
+(auf dem Cluster mit Vollladung, kann es zu längeren Berechnungszeiten kommen)
+
+- Berechnungszeit: 72.164s
+  	Zeitintensive Funktionen: calculate (83.51% der Aufrufszeit)
+  	calculate_func (15.92%)
+
+- optimieren: Zeile 344, 347: beide Zeilen vertauschen (bzw. i und j vertauschen)
+	Berechnungszeit: 69.111s
+	calculate(82.48% der Aufrufszeit)
+	calculate_func(17.15% der Aufrufszeit)
+
+- + compilerflag -Ofast
+	Berechnungszeit: 1.790s
+	calculate(82.48% der Aufrufszeit)
+	calculate_func(17.15% der Aufrufszeit)
+	
+Beispiel: ./partdiff 1 2 64 2 2 5120
+
+- Berechnungszeit: 85.170s
+	calculate (69.52%)
+	calculate_func (30.52%)
+
+- optimieren: Zeile 344, 347: beide Zeilen vertauschen (bzw. i und j vertauschen)
+	Berechnungszeit: 82.903s
+	calculate(68.58% der Aufrufszeit)
+	calculate_func(31.38% der Aufrufszeit)	
+
+- + compilerflag -Ofast
+	Berechnungszeit: 8.076s
+	calculate(68.58% der Aufrufszeit)
+	calculate_func(31.38% der Aufrufszeit)
+
+
+Ausgabe von gprof erläutern:
+- gmon.out = call graph profile Datei
+- berechnet daraus die Zeit, die das Programm zum laufen braucht und mithilfe des call graphs werden Cycles erkannt
+- daraus lassen sich die einzelnen Zugriffszeiten / Aufrufe der Funktionen berechnen
+
+perf stat ./partdiff
+branch misses: Betriebssystem versucht zu schätzen, wo man hinspringt und hat sich "verschätzt" -> bei richtigen predicts ließe sich Zeit einsparen
+stall cycles: Das Programm wartet (auf z.B. Ressourcen) -> braucht Zeit, da Programm wartet und nicht arbeiten kann
+page fault: Nicht im Arbeitsspeicher/Cache geladene Seiten, die von der Festplatte geladen werden müssen -> brauchen relativ viel Zeit
+Kontextwechsel: Programm wechselt von User Mode in Kernel Mode -> keine in dem Programm
+
