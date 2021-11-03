@@ -4,4 +4,6 @@ woche 1: 230 / 210
 
 woche 2: 276 / 330
 
-woche 3: --- / 340
+woche 3: 270 / 340
+
+woche 4:
