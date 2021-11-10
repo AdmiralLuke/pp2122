@@ -6,4 +6,6 @@ woche 2: 276 / 330
 
 woche 3: 270 / 340
 
-woche 4:
+woche 4: 225 / 300
+
+woche 5:
