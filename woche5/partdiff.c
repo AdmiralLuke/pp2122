@@ -24,7 +24,7 @@
 /* Include standard header file.                                            */
 /* ************************************************************************ */
 #define _POSIX_C_SOURCE 200809L
-
+#include <omp.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -308,6 +308,7 @@ calculate(struct calculation_arguments const* arguments, struct calculation_resu
 
 	typedef double(*matrix)[N + 1][N + 1];
 
+	omp_set_num_threads(options->number);
 	matrix Matrix = (matrix)arguments->M;
 
 	/* initialize m1 and m2 depending on algorithm */
@@ -328,19 +329,36 @@ calculate(struct calculation_arguments const* arguments, struct calculation_resu
 		fpisin = 0.25 * (2 * M_PI * M_PI) * h * h;
 	}
 
+	#pragma omp parallel private(residuum, star, i, j) shared(maxresiduum, Matrix, m1, m2, pih, term_iteration, options, fpisin, results) default(none)
 	while (term_iteration > 0)
 	{
 		maxresiduum = 0;
+		int countThreads = omp_get_num_threads();
+		if (countThreads > N) {
+			// Programm abbrechen
+			printf("Programm abbrechen");
+		}
+
+		// rest = N % countThreads;	
+		int step_Size = N / countThreads;
+		/* for-Schleife parallelisieren jeder Thread hat Zugriff auf den maximalen Fehler und die Matrix und seine eigenen residuum, star, i, und j Variablen */
+		// #pragma omp parallel default(none) 
+		// #pragma omp parallel for private(residuum, star, i, j) shared(maxresiduum, Matrix, m1, m2, pih, term_iteration, options, fpisin) default(none)
 
 		/* over all rows */
-		for (i = 1; i < N; i++)
+		for (i = ((omp_get_thread_num() * step_Size) + 1); i < ((omp_get_thread_num() + 1) * step_Size); i++)
 		{
+			// Debugging für Dummys
+			// printf("countThreads %d, i = %d, i < %d, N = %d, step_Size = %d, threadNum: %d\n", countThreads, ((omp_get_thread_num() * step_Size) + 1), ((omp_get_thread_num() + 1)*step_Size), N, step_Size, omp_get_thread_num());
 			double fpisin_i = 0.0;
 
 			if (options->inf_func == FUNC_FPISIN)
 			{
 				fpisin_i = fpisin * sin(pih * (double)i);
 			}
+			
+			/* zweite Schleife parallelisieren */
+			//#pragma omp parallel for private(residuum, star, j) shared(maxresiduum, Matrix, options, fpisin, pih,N, results, m1, m2, term_iteration)
 
 			/* over all columns */
 			for (j = 1; j < N; j++)
@@ -362,6 +380,8 @@ calculate(struct calculation_arguments const* arguments, struct calculation_resu
 				Matrix[m1][i][j] = star;
 			}
 		}
+		// #pragma omp critical
+		// lowerRow = (omp_get_thread_num()* step_Size)+1;
 
 		results->stat_iteration++;
 		results->stat_precision = maxresiduum;
