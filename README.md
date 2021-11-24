@@ -8,4 +8,6 @@ woche 3: 270 / 340
 
 woche 4: 225 / 300
 
-woche 5:
+woche 5: 240 / 420
+
+woche 6:
