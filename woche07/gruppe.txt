@@ -1,0 +1,3 @@
+Lukas Eichel <lukas.eichel@ovgu.de>
+Marc Nahr <marc.nahr@st.ovgu.de>
+Fabian Hollburg <fabian.hollburg@ovgu.de>
