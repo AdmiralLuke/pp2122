@@ -61,7 +61,7 @@ struct calculation_arguments
 	double*  M;            /* two matrices with real values */
 
     // speichert die Anzahl an zu berechnenden Zahlen für die Ränge
-    uint64_t ranks
+    uint64_t ranks;
     int row_start;
     int row_end;
 };
@@ -213,11 +213,11 @@ initVariables(struct calculation_arguments* arguments, struct calculation_result
 
     // Berechnung wie viele Zeilen welcher Rang berechnet
     int rest = (arguments->N+1) % options->size;
-    arguments->N_rank = (arguments->N+1) / options->size
+    arguments->ranks = (arguments->N+1) / options->size;
 
     // gleichmäßige Verteilung des Rests
     int offset = 0;
-    for (int i = 0; i < options.rank; i++) {
+    for (int i = 0; i < options->rank; i++) {
         if (i < rest) {
             offset++;
         }
@@ -344,7 +344,7 @@ initMatrices(struct calculation_arguments* arguments, struct options const* opti
 				
 			}
 
-			Matrix[g][rank - 1][0] = 0.0;
+			Matrix[g][ranks - 1][0] = 0.0;
 			Matrix[g][0][N] = 0.0;
 		}
 	}
@@ -452,14 +452,14 @@ MPI_jacobi_calculate(struct calculation_arguments const* arguments, struct calcu
             MPI_Wait(&lower[1], NULL);
             MPI_Wait(&upper[0], NULL);
         }
-        if (options->rank != options->soze - 1) {
+        if (options->rank != options->size - 1) {
             MPI_Wait(&lower[0], NULL);
             MPI_Wait(&upper[1], NULL);
         }
 
 		results->stat_iteration++;
 		// results->stat_precision = maxresiduum;
-        MPI_Allreduce(&maxresiduum. &(results->stat_precision), 1, MPI_DOUBLE, MPI_MAX, MPI_COMM_WORD);
+        MPI_Allreduce(&maxresiduum, &(results->stat_precision), 1, MPI_DOUBLE, MPI_MAX, MPI_COMM_WORD);
 
 		/* exchange m1 and m2 */
 		i  = m1;
@@ -798,7 +798,7 @@ main(int argc, char** argv)
     }
 	gettimeofday(&comp_time, NULL);
 
-    if (options.rank <= 0) {}
+    if (options.rank <= 0) {
 	    displayStatistics(&arguments, &results, &options);
     }
 
@@ -809,7 +809,7 @@ main(int argc, char** argv)
         displayMatrix(&arguments, &results, &options);
     }
 
-    MPI.Finalize();
+    MPI_Finalize();
 
 	freeMatrices(&arguments);
 
