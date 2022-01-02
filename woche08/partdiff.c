@@ -459,7 +459,7 @@ MPI_jacobi_calculate(struct calculation_arguments const* arguments, struct calcu
 
 		results->stat_iteration++;
 		// results->stat_precision = maxresiduum;
-        MPI_Allreduce(&maxresiduum, &(results->stat_precision), 1, MPI_DOUBLE, MPI_MAX, MPI_COMM_WORD);
+        MPI_Allreduce(&maxresiduum, &(results->stat_precision), 1, MPI_DOUBLE, MPI_MAX, MPI_COMM_WORLD);
 
 		/* exchange m1 and m2 */
 		i  = m1;
