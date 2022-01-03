@@ -285,8 +285,8 @@ allocateMatrices(struct calculation_arguments* arguments)
 {
 	uint64_t const N = arguments->N;
 
-    // nur so viel reservieren wie notwen
-	arguments->M = allocateMemory(arguments->num_matrices * arguments->ranks * (N + 1) * (N + 1) * sizeof(double));
+    // nur so viel reservieren wie notwendig
+	arguments->M = allocateMemory(arguments->num_matrices * arguments->ranks * (N + 1) * sizeof(double));
 }
 
 /* ************************************************************************ */
