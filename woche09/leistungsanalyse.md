@@ -37,6 +37,11 @@
    Comment=(null)
    
    ##### Interpretation
-   Die Werte zeigen eine geeignete Parallelisierung. Zusätzlich sieht man, das die Gauß-Seidel implementation etwas langsamer ist, als die von Jacobi. 
+   Es lässt sich erkennen, dass die parallelisierte Variante für eine steigende Anzahl an Interlines deutlich schneller ist. 
+   Während die Berechnungszeit des seriellen Programmes steigt, wird sie für das modifizierte Programm kontinuierlich geringer.
+   Erkennbar ist allerdings auch, dass der Geschwindigkeitszuwachs zwischen den Konfigurationen des parallelen Programmes mit der 
+   Zeit kleiner wird, da der parallelisierbare Teil trotz steigenden Interlines kleiner wird. Weiterhin ist der Jacobi-Algorithmus
+   minimal schneller als der Gauss-Seidel. Die Unterschiede sind jedoch nur eine handvoll Sekunden.
+   
 
 
